@@ -19,7 +19,7 @@ The amount of time you spend on this exercise is up to you, and there are severa
 
 - Develop some questions (for the rosterer) that support further requirements that you might need in order to more fully specify such an application.
 - Create a minimal database schema (or equivalently, ORM model definitions) for the application. You could also demonstrate the effectiveness of your schema by writing a routine to read the sample data from the database.
-- Design a web API which could be used for communication between the web app's server and client.
+- Design a web API which could be used for communication between the web app's server and client. For example a file upload which validates the csv data before inputting it into the database, or endpoints for manual interactions with the data.
 - Describe and/or implement an algorithm which generates an allocation of staff to shifts.
 
 If any of the requirements are unclear feel free to send through questions for clarification or make assumptions - we are not trying to test you on your knowledge of rostering.
