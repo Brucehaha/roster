@@ -6,7 +6,7 @@ The suggested time to spend on this exercise is at least 2 hours.
 
 ### Instructions
 
-For this challenge, we are looking for you to create the backend for a a simple rostering application. This application would be used for creating, editing and deleting both employees and shifts, and for managing the assignment and re-assignment of shifts to employees. The tool may be used by a company that has one or multiple locations which need to be managed.
+For this challenge, we are looking for you to create the backend for a a simple rostering application. This application would be used for creating, editing and deleting both employees and shifts, and for managing the assignment and re-assignment of shifts to employees. It may also call out to an optimisation engine to assign all the shifts to employees in a least cost way. The tool may be used by a company that has one or multiple locations which need to be managed.
 
 An example use for this application could be for a small business that works 24/7 to manage the shifts of it's employees to make sure everyone gets adequate days off and doesn't get shifts which are directly back-to-back (eg working on a night shift followed by a morning shift the next day).
 
@@ -15,6 +15,10 @@ We're providing you with two mock data csv files which are typical of the type o
 - Employees: The people who are being rostered
 - Shifts: These are the bits of work assigned to employees.
 
+The minimum set of rules that the external algorithm would consider are:
+- Minimum of 10hr overnight rest
+- Maximum of 5 days working out of 7 any rolling 7 day window
+- Maximum of 5 days working in a row
 
 ### Challenge
 
@@ -25,6 +29,7 @@ The amount of time you spend on this exercise is up to you, and there are severa
 - Design and/or implement a web API which could be used for communication between the web app's server and client. For example, endpoints for the manual interactions with the data.
 - Develop some questions (for the rosterer) that support further requirements that you might need in order to more fully specify such an application.
 - Design and/or implement a pattern for calling an external process where a mathematical algorithm can run (these can sometimes run for many minutes)
+- Design and/or implement a pattern for validating shifts and returning or storing warnings
 
 If any of the requirements are unclear feel free to send through questions for clarification or make assumptions - we are not trying to test you on your knowledge of rostering.
 
