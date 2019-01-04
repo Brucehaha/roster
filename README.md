@@ -31,6 +31,8 @@ The amount of time you spend on this exercise is up to you, and there are severa
 - Design and/or implement a pattern for calling an external process where a mathematical algorithm can run (these can sometimes run for many minutes)
 - Design and/or implement a pattern for validating shifts and returning or storing warnings
 
+Note that this exercise does not include the writing of the mathematical algorithm for optimal assignment.
+
 If any of the requirements are unclear feel free to send through questions for clarification or make assumptions - we are not trying to test you on your knowledge of rostering.
 
 ### Deliverables
