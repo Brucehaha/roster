@@ -6,14 +6,15 @@ The suggested time to spend on this exercise is at least 2 hours.
 
 ### Instructions
 
-For this challenge, we are looking for you to create the backend for a a simple rostering application. This application would be used for creating, editing and deleting both employees and shifts, and for managing the assignment and re-assignment of shifts to employees. It may also call out to an optimisation engine to assign all the shifts to employees in a least cost way. The tool may be used by a company that has one or multiple locations which need to be managed.
-
-An example use for this application could be for a small business that works 24/7 to manage the shifts of it's employees to make sure everyone gets adequate days off and doesn't get shifts which are directly back-to-back (eg working on a night shift followed by a morning shift the next day).
-
-We're providing you with two mock data csv files which are typical of the type of data collected directly from clients:
-
-- Employees: The people who are being rostered
-- Shifts: These are the bits of work assigned to employees.
+- install app on you local machine: 
+    1. ```docker-compose build```
+    2. ```docker-compose run --rm app sh -c "python manage.py makegrations"```
+    3. ```docker-compose run --rm app sh -c "python manage.py migrate"```    
+    4. ```docker-compose up```
+    5. open link: localhost:8000
+    6. login detail: 
+          email: admin@admin.com
+          password: admin
 
 ###  Required algorithms for :
 - Minimum of 10hr overnight rest
@@ -21,7 +22,7 @@ We're providing you with two mock data csv files which are typical of the type o
 - Maximum of 5 days working in a row
   
 ###  Solutions: 
-  - see [Utils.py](https://bitbucket.org/brucematrix/rosterapp/src/027a934a35de/app/shift/utils.py?at=master "Utils.py") for algorithms
+  - see [pp/shift/utils.py](https://bitbucket.org/brucematrix/rosterapp/src/027a934a35de/app/shift/utils.py?at=master "Utils.py") for algorithms
 
 ### Challenge
 
@@ -37,6 +38,16 @@ The amount of time you spend on this exercise is up to you, and there are severa
 
 
 ### Challenge Deliverables
-1. see [models.py](https://bitbucket.org/brucematrix/rosterapp/src/master/app/core/models.py?at=master "models.py") for model. see [UML](https://bitbucket.org/brucematrix/rosterapp/src/master/app/core/models.py?at=master "models.py") for UML diagram
-
+1. see [app/core/models.py](https://bitbucket.org/brucematrix/rosterapp/src/master/app/core/models.py?at=master "models.py") for model. 
+   see [UML](https://drive.google.com/file/d/1mmIjisNYPS-pSBPlLaCF0pMm-WRjzYk7/view?usp=sharing "models.py") for UML diagram.
+   There are differences between models.py and UML database design. In models.py, I did not create store table and shift_choices table. for convienience, store the shift choice and stores 
+   directly in shift table.
+2. crreate a task table in [app/core/models.py](https://bitbucket.org/brucematrix/rosterapp/src/master/app/core/models.py?at=master "models.py").
+   create Upload serializer in [app/shift/employee_serializer.py](https://bitbucket.org/brucematrix/rosterapp/src/master/app/shift/employee_serializer.py?at=master).
+   create UploadViewSet in [app/shift/UploadViewSet](https://bitbucket.org/brucematrix/rosterapp/src/master/app/shift/views.py?at=master) to read file and write to database.
+3. please see [app/shift/](https://bitbucket.org/brucematrix/rosterapp/src/master/app/shift/?at=master) folder to find the code
+4. I do not need create least cost algrithom, I only need to design a pattern to call out and get least cost solution.
+   But what is the call back data format is? Can I have a sample. So I can store them to the database.
+5. no design
+6. warning has been created in [app/shift/utils.py](https://bitbucket.org/brucematrix/rosterapp/src/027a934a35de/app/shift/utils.py?at=master "Utils.py") for algorithms
 
