@@ -19,6 +19,8 @@ The minimum set of rules that the external algorithm would consider are:
 - Minimum of 10hr overnight rest
 - Maximum of 5 days working out of 7 any rolling 7 day window
 - Maximum of 5 days working in a row
+  ##solutions: 
+  - see [This link](https://bitbucket.org/brucematrix/rosterapp/src/027a934a35de/app/shift/utils.py?at=master "Utils.py") has a title attribute.
 
 ### Challenge
 
