@@ -15,39 +15,28 @@ We're providing you with two mock data csv files which are typical of the type o
 - Employees: The people who are being rostered
 - Shifts: These are the bits of work assigned to employees.
 
-The minimum set of rules that the external algorithm would consider are:
+###  Required algorithms for :
 - Minimum of 10hr overnight rest
 - Maximum of 5 days working out of 7 any rolling 7 day window
 - Maximum of 5 days working in a row
-  ##solutions: 
-  - see [This link](https://bitbucket.org/brucematrix/rosterapp/src/027a934a35de/app/shift/utils.py?at=master "Utils.py") has a title attribute.
+  
+###  Solutions: 
+  - see [Utils.py](https://bitbucket.org/brucematrix/rosterapp/src/027a934a35de/app/shift/utils.py?at=master "Utils.py") for algorithms
 
 ### Challenge
 
 The amount of time you spend on this exercise is up to you, and there are several activities you could consider depending on your strengths:
 
-- (Required) Create a database schema for the application.
-- Write code for reading and validating the clients csv files into the database.
-- Design and/or implement a web API which could be used for communication between the web app's server and client. For example, endpoints for the manual interactions with the data.
-- Develop some questions (for the rosterer) that support further requirements that you might need in order to more fully specify such an application.
-- Design and/or implement a pattern for calling an external process where a mathematical algorithm can run (these can sometimes run for many minutes)
-- Design and/or implement a pattern for validating shifts and returning or storing warnings
+1. (Required) Create a database schema for the application.
+2. Write code for reading and validating the clients csv files into the database.
+3. sign and/or implement a web API which could be used for communication between the web app's server and client. For example, endpoints for the manual interactions with the data.
+4. Develop some questions (for the rosterer) that support further requirements that you might need in order to more fully specify such an application.
+5. Design and/or implement a pattern for calling an external process where a mathematical algorithm can run (these can sometimes run for many minutes)
+6. Design and/or implement a pattern for validating shifts and returning or storing warnings
 
-Note that this exercise does not include the writing of the mathematical algorithm for optimal assignment.
 
-If any of the requirements are unclear feel free to send through questions for clarification or make assumptions - we are not trying to test you on your knowledge of rostering.
 
-### Deliverables
+### Challenge Deliverables
+1. see [models.py](https://bitbucket.org/brucematrix/rosterapp/src/master/app/core/models.py?at=master "models.py") for model. see [UML](https://bitbucket.org/brucematrix/rosterapp/src/master/app/core/models.py?at=master "models.py") for UML diagram
 
-What you deliver is up to you, some suggestions based on our current practices are:
 
-- Python 3
-- Django
-- Postgresql
-- Pseudo-code
-- Diagrams (e.g. UML)
-- Notes on assumptions or next steps you would take
-
-Please create your solution in a fork off this repo. When you're ready to share your solution with us, email a link to your recruiter or Biarri contact.
-
-On completion, if there are additional things you think you could have done better/did not have enough time to complete, feel free to compile a quick list and bring it to the technical interview to help remind yourself during the discussion.
