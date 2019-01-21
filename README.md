@@ -18,14 +18,14 @@ Create PosgreSQL, Django, Redis, Celery using docker.
           if you are using chrome browser, download 'modhearder' plugin.
           Put token in modeHeader like:
           ```Header: Authorization value: Token c72880baebd93316e499824e1ca68e97aa633027```
-     7.Other link:
-          create new user after login: ```http://127.0.0.1:8000/api/user/create/```
-          update my user name or password: ```http://127.0.0.1:8000/api/user/me/```
-          edit employee, shift, uploading file to create employee, callout pattern: ```http://127.0.0.1:8000/api/shift/```
-          edit employees: ```http://127.0.0.1:8000/api/shift/employees/```
-          edit shifts: ```http://127.0.0.1:8000/api/shift/shifts/```
-          uploads: ```http://127.0.0.1:8000/api/shift/uploads/```
-          callout function : ```http://127.0.0.1:8000/api/shift/celery/```
+### Other link:
+    1. create new user after login: ```http://127.0.0.1:8000/api/user/create/```
+    2. update my user name or password: ```http://127.0.0.1:8000/api/user/me/```
+    3. edit employee, shift, uploading file to create employee, callout pattern: ```http://127.0.0.1:8000/api/shift/```
+    4. edit employees: ```http://127.0.0.1:8000/api/shift/employees/```
+    5. edit shifts: ```http://127.0.0.1:8000/api/shift/shifts/```
+    6. uploads: ```http://127.0.0.1:8000/api/shift/uploads/```
+    7. callout function : ```http://127.0.0.1:8000/api/shift/celery/```
 
 ###  Required algorithms for :
 - Minimum of 10hr overnight rest
