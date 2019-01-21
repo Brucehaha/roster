@@ -4,7 +4,7 @@ Create PosgreSQL, Django, Redis, Celery using docker.
 
 ### Instructions
 
-- install app on you local machine: 
+install app on you local machine: 
     1. ```docker-compose build```
     2. ```docker-compose run --rm app sh -c "python manage.py makegrations"```
     3. ```docker-compose run --rm app sh -c "python manage.py migrate"```    
@@ -13,11 +13,11 @@ Create PosgreSQL, Django, Redis, Celery using docker.
     6. login detail: 
         ```email: admin@admin.com```
          ```password: admin```
-    6. After login:
-          go ```http://127.0.0.1:8000/api/user/token/``` and get a token
-          if you are using chrome browser, download 'modhearder' plugin.
-          Put token in modeHeader like:
-          ```Header: Authorization value: Token c72880baebd93316e499824e1ca68e97aa633027```
+### After login:
+    1. go ```http://127.0.0.1:8000/api/user/token/``` and get a token
+    2. if you are using chrome browser, download 'modhearder' plugin.
+    3. Put token in modeHeader like:
+    4. ```Header: Authorization value: Token c72880baebd93316e499824e1ca68e97aa633027```
 ### Other link:
     1. create new user after login: http://127.0.0.1:8000/api/user/create/
     2. update my user name or password: http://127.0.0.1:8000/api/user/me/
