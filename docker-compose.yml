@@ -1,6 +1,10 @@
 version: '3'
 
 services:
+  redis:
+    image: redis:3.0.1
+    hostname: redis
+
   app:
     build:
       context: .
@@ -17,18 +21,28 @@ services:
       - DB_NAME=app
       - DB_USER=postgres
       - DB_PASS=supersecretpassword
+    links:
+    - redis
     depends_on:
       - db
+
   db:
     image: postgres:11-alpine
     ports:
-      - "5432:5432"
+      - 5432
     environment:
       - POSTGRES_DB=app
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=supersecretpassword
 
-
+  celery:
+    build: .
+    command: >
+      sh -c "celery -A roster worker -l info"
+    volumes:
+      - ./app:/app
+    depends_on:
+      - redis
 
 
 
