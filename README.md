@@ -75,9 +75,11 @@ The amount of time you spend on this exercise is up to you, and there are severa
 6. warning has been created in [app/shift/utils.py](https://bitbucket.org/brucematrix/rosterapp/src/027a934a35de/app/shift/utils.py?at=master "Utils.py") for algorithms
 
 ### Still need to Finish
-For creating shift for employee, it will follow the rules to respond error, if the employee did not follow the rules in:
-- Minimum of 10hr overnight rest
+-For creating shift for employee, it will follow the rules to respond error, if the employee did not follow the rules in:
+
+```- Minimum of 10hr overnight rest
 - Maximum of 5 days working out of 7 any rolling 7 day window
-- Maximum of 5 days working in a row
+- Maximum of 5 days working in a row```
+
 but I did not apply it to use in updating employee, however it is the same way by importing the same method created in 
-utils.py, and put method in perform_update method of the viewset.
+```utils.py```, and put method in perform_update method of the viewset.
