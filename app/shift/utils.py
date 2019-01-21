@@ -18,18 +18,19 @@ class ShiftFilter:
 
     def respond(self):
         response = self.rest_10hrs()
-        if response['status']:
-            response = self.five_day_max()
+        if response:
             if response['status']:
-                response = self.five_day_in_row()
-
+                response = self.five_day_max()
+                if response:
+                    if response['status']:
+                        response = self.five_day_in_row()
         return response
 
     def rest_10hrs(self):
         """
         Minimum of 10hr overnight rest:
-        Minimum wait one day for next shift,e.g bruce take 5AM to 1:30PM, the minimum gap is
-        take the next day 5AM to 1:30PM
+        one shift is 8 hours and 30 mins,8.5hours < 10hours <8.5*2
+        so the employee mush has 2 shifts rest before next shift.
         """
         response = {'error_message': "%s must have 10hrs rest"
                                      % self.serializers.validated_data['employee'],
@@ -47,39 +48,38 @@ class ShiftFilter:
         data_list = models.Shift.objects. \
             filter(employee=self.employee, date__in=date_list). \
             values("date", "employee", "shift_type")
-        data_list = list(data_list)
 
-        if self.shift_type == 1:
-            if {"date": self.date, "employee": self.employee.id, "shift_type": 1} in data_list:
+        data_list = list(data_list)
+        if len(data_list)>0:
+            employee_obj = {"date": self.date, "employee": self.employee.id, "shift_type": self.shift_type}
+            shift=[1, 2 ,3]
+            # check if employee is schedualed twice in the same time
+            if employee_obj in data_list:
                 return response1
-            if {"date": self.date, "employee": self.employee.id, "shift_type": 2} in data_list:
-                return response
-            if {"date": self.date, "employee": self.employee.id, "shift_type": 3} in data_list:
-                return response
-            if {"date": yesterday, "employee": self.employee.id, "shift_type": 2} in data_list \
-                    or {"date": yesterday, "employee": self.employee, "shift_type": 3} in data_list:
-                return response1
-        if self.shift_type == 3:
-            if {"date": self.date, "employee": self.employee.id, "shift_type": 3} in data_list:
-                return response1
-            if {"date": self.date, "employee": self.employee.id, "shift_type": 1} in data_list:
-                return response
-            if {"date": self.date, "employee": self.employee.id, "shift_type": 2} in data_list:
-                return response
-            if {"date": tomorrow, "employee": self.employee.id, "shift_type": 1} in data_list \
-                    or {"date": yesterday, "employee": self.employee.id, "shift_type": 2} in data_list:
-                return response
-        if self.shift_type == 2:
-            if {"date": self.date, "employee": self.employee.id, "shift_type": 2} in data_list:
-                return response1
-            if {"date": self.date, "employee": self.employee.id, "shift_type": 1} in data_list:
-                return response
-            if {"date": self.date, "employee": self.employee.id, "shift_type": 3} in data_list:
-                return response
-            if {"date": yesterday, "employee": self.employee.id, "shift_type": 3} in data_list \
-                    or {"date": tomorrow, "employee": self.employee.id, "shift_type": 1} in data_list:
-                return response
-        response['status'] = True
+            # remove the shift employee schedualed
+            shift.remove(self.shift_type)
+            # check if employee work in the same day twice.
+            for i in shift:
+                employee_obj["shift_type"] =i
+                if employee_obj in data_list:
+                    return response
+            # check if the employee current shift has 2 shifts' gap compare to the
+            # pass or future schedual, like employe work as shift 2  in day 12,
+            # and he can not work for shift 1 in tomorrow, or shift 3 in yesterday
+            for i in shift:
+                employee_obj["shift_type"]=i
+                if self.shift_type ==1:
+                    employee_obj["date"]=yesterday
+                if self.shift_type ==3:
+                    employee_obj["date"]= tomorrow
+                if self.shift_type ==2:
+                    if i == 1:
+                        employee_obj["date"]= tomorrow
+                    if i == 3:
+                        employee_obj["date"]= yesterday
+                if employee_obj in data_list:
+                    return response
+        response["status"]=True
         return response
 
     def five_day_max(self):
