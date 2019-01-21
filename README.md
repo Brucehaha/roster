@@ -2,9 +2,9 @@
 Create PosgreSQL, Django, Redis, Celery using docker.
 
 
-### Instructions
+## Instructions
 
-install app on you local machine: 
+### install app on you local machine: 
     1. ```docker-compose build```
     2. ```docker-compose run --rm app sh -c "python manage.py makegrations"```
     3. ```docker-compose run --rm app sh -c "python manage.py migrate"```    
