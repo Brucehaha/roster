@@ -1,8 +1,6 @@
-# Back End Developer Exercise
+### Solution Summary
+Create PosgreSQL, Django, Redis, Celery using docker.
 
-The aim of this exercise is to simulate real working conditions to provide context for a code/design review session. The follow up review session will focus on your reasons for database/API design and pseudo-code/code implementation. As such it isn’t necessary to build a complete implementation, however having some runnable code is recommended (preferably in Python).
-
-The suggested time to spend on this exercise is at least 2 hours.
 
 ### Instructions
 
@@ -11,10 +9,23 @@ The suggested time to spend on this exercise is at least 2 hours.
     2. ```docker-compose run --rm app sh -c "python manage.py makegrations"```
     3. ```docker-compose run --rm app sh -c "python manage.py migrate"```    
     4. ```docker-compose up```
-    5. open link: localhost:8000
+    5. open link: localhost:8000 or http://127.0.0.1:8000/
     6. login detail: 
-          email: admin@admin.com
-          password: admin
+        ```email: admin@admin.com```
+         ```password: admin```
+    6. After login:
+          go ```http://127.0.0.1:8000/api/user/token/``` and get a token
+          if you are using chrome browser, download 'modhearder' plugin.
+          Put token in modeHeader like:
+          ```Header: Authorization value: Token c72880baebd93316e499824e1ca68e97aa633027```
+     7.Other link:
+          create new user after login: ```http://127.0.0.1:8000/api/user/create/```
+          update my user name or password: ```http://127.0.0.1:8000/api/user/me/```
+          edit employee, shift, uploading file to create employee, callout pattern: ```http://127.0.0.1:8000/api/shift/```
+          edit employees: ```http://127.0.0.1:8000/api/shift/employees/```
+          edit shifts: ```http://127.0.0.1:8000/api/shift/shifts/```
+          uploads: ```http://127.0.0.1:8000/api/shift/uploads/```
+          callout function : ```http://127.0.0.1:8000/api/shift/celery/```
 
 ###  Required algorithms for :
 - Minimum of 10hr overnight rest
@@ -48,6 +59,7 @@ The amount of time you spend on this exercise is up to you, and there are severa
 3. please see [app/shift/](https://bitbucket.org/brucematrix/rosterapp/src/master/app/shift/?at=master) folder to find the code
 4. I do not need create least cost algrithom, I only need to design a pattern to call out and get least cost solution.
    But what is the call back data format is? Can I have a sample. So I can store them to the database.
-5. no design
+5.  see [app/core/](https://bitbucket.org/brucematrix/rosterapp/src/master/app/core/), ```celery_serializer.py,  models.py, tasks.py```.
+    and ```settings.py, rosterapp/roster/__init__.py, rosterapp/src/master/app/shift/urls.py ```
 6. warning has been created in [app/shift/utils.py](https://bitbucket.org/brucematrix/rosterapp/src/027a934a35de/app/shift/utils.py?at=master "Utils.py") for algorithms
 
