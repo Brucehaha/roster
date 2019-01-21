@@ -19,13 +19,13 @@ Create PosgreSQL, Django, Redis, Celery using docker.
           Put token in modeHeader like:
           ```Header: Authorization value: Token c72880baebd93316e499824e1ca68e97aa633027```
 ### Other link:
-    1. create new user after login: ```http://127.0.0.1:8000/api/user/create/```
-    2. update my user name or password: ```http://127.0.0.1:8000/api/user/me/```
-    3. edit employee, shift, uploading file to create employee, callout pattern: ```http://127.0.0.1:8000/api/shift/```
-    4. edit employees: ```http://127.0.0.1:8000/api/shift/employees/```
-    5. edit shifts: ```http://127.0.0.1:8000/api/shift/shifts/```
-    6. uploads: ```http://127.0.0.1:8000/api/shift/uploads/```
-    7. callout function : ```http://127.0.0.1:8000/api/shift/celery/```
+    1. create new user after login: http://127.0.0.1:8000/api/user/create/
+    2. update my user name or password: http://127.0.0.1:8000/api/user/me/
+    3. edit employee, shift, uploading file to create employee, callout pattern: http://127.0.0.1:8000/api/shift/
+    4. edit employees: http://127.0.0.1:8000/api/shift/employees/
+    5. edit shifts: http://127.0.0.1:8000/api/shift/shifts/
+    6. uploads: http://127.0.0.1:8000/api/shift/uploads/
+    7. callout function : http://127.0.0.1:8000/api/shift/celery/
 
 ###  Required algorithms for :
 - Minimum of 10hr overnight rest
