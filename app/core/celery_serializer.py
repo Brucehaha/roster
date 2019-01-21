@@ -3,7 +3,7 @@ from . import models
 
 
 class CelerySerializer(serializers.HyperlinkedModelSerializer):
-    """Serialize the doc object"""
+    """Serialize the TaskCelery object"""
     class Meta:
         model = models.CeleryTask
         fields = ('id', 'function', 'task', 'result')

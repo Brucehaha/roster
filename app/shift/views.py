@@ -15,7 +15,7 @@ import csv
 
 
 class EmployeeViewSet(viewsets.ModelViewSet):
-    """Manage ingredients in the database"""
+    """Manage employee in the database"""
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     queryset = models.Employee.objects.all()
