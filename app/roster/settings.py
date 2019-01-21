@@ -147,3 +147,11 @@ AUTH_USER_MODEL = 'core.UserProfile'
 # )
 # }
 
+# Redis
+
+REDIS_PORT = 6379
+REDIS_DB = 0
+REDIS_HOST = os.environ.get('REDIS_PORT_6379_TCP_ADDR', 'redis')
+
+CELERY_BROKER_URL = 'redis://%s:%d/' % (REDIS_HOST, REDIS_PORT)
+CELERY_RESULT_BACKEND = 'redis://%s:%d/%d' % (REDIS_HOST, REDIS_PORT, REDIS_DB)

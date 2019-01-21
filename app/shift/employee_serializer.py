@@ -31,8 +31,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
 class UploadSerializer(serializers.HyperlinkedModelSerializer):
     """Serialize the doc object"""
     doc = serializers.FileField(max_length=None)
-    url = serializers.HyperlinkedIdentityField(view_name="shift:upload-detail")
+    # url = serializers.HyperlinkedIdentityField(view_name="shift:upload-detail")
     class Meta:
         model = models.Task
-        fields = ('url', 'id', 'doc')
-        read_only_fields = ('id',)
+        fields = ('id', 'doc')

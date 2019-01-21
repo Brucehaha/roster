@@ -103,11 +103,11 @@ class ShiftFilter:
         queryset = models.Shift.objects.\
             filter(employee=self.employee, date__range=(start_date, end_date)).\
             values_list('date')
-        query_list = [[*x] for x in zip(*queryset)]
-        self.array_list.append(self.date)
-        # date list that employee Bruce work between day 6-18
-        self.array_list.extend(query_list[0])
-        print('max', self.array_list)
+        if queryset:
+            query_list = [[*x] for x in zip(*queryset)]
+            self.array_list.append(self.date)
+            # date list that employee Bruce work between day 6-18
+            self.array_list.extend(query_list[0])
         return self.days_work_check(self.date, end_date, response)
 
     def five_day_in_row(self):
@@ -123,11 +123,11 @@ class ShiftFilter:
         queryset = models.Shift.objects.\
             filter(employee=self.employee, date__range=(start_date, end_date)).\
             values_list('date')
-        query_list = [[*x] for x in zip(*queryset)]
-        array_list.extend(query_list[0])
-
-        array_list = sorted(array_list, reverse=True)
-        print(array_list)
+        if queryset:
+            query_list = [[*x] for x in zip(*queryset)]
+            array_list.extend(query_list[0])
+            array_list = sorted(array_list, reverse=True)
+            print(array_list)
         return self.is_consecutive(array_list, 5)
 
     def is_consecutive(self, a, c):

@@ -86,9 +86,9 @@ class UploadViewSet(viewsets.ModelViewSet):
         :param serializer: save and get isntance
         :return: message and status code
         """
-        data = serializer.data
         status_code = status.HTTP_201_CREATED
         instance = serializer.save()
+        data = serializer.data
         path = os.path.join(settings.MEDIA_ROOT, str(instance.doc))
         employees_list =[]
         employees = models.Employee.objects.all()
@@ -107,6 +107,6 @@ class UploadViewSet(viewsets.ModelViewSet):
         except Exception as e:
             print(e)
             data = {"message": str(e)}
-            status_code=status.HTTP_406_NOT_ACCEPTABLE
+            status_code = status.HTTP_406_NOT_ACCEPTABLE
         return data, status_code
 
