@@ -18,7 +18,6 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from . import views
-from core.views import celery_test, celery_res
 
 urlpatterns = [
     path('', views.home),
@@ -27,6 +26,5 @@ urlpatterns = [
     path('api/shift/', include('shift.urls')),
     path('accounts/login/', views.acc_login),
     path('accounts/logout/', views.acc_logout, name="logout"),
-    path('celery_test/', celery_test),
-    path('celery_res/', celery_res),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

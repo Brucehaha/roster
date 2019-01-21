@@ -115,5 +115,16 @@ def recipe_image_file_path(instance, filename):
 
 
 class Task(models.Model):
+    """store uploaded employee file """
     doc = models.FileField(upload_to='doc/', null=True, verbose_name="Employee Upload List")
+
+class CeleryTask(models.Model):
+    """execute celery program on rest api to call out a function"""
+    func_choices =(
+        (1, "add"),
+        (2, 'multiply')
+    )
+    function = models.SmallIntegerField(choices=func_choices, default=1)
+    task = models.CharField(max_length=65, null=True)
+    result = models.CharField(max_length=255, null=True)
 

@@ -35,3 +35,4 @@ class UploadSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Task
         fields = ('id', 'doc')
+        read_only_fields = ('id',)
