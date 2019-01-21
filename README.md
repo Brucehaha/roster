@@ -26,13 +26,17 @@ Create PosgreSQL, Django, Redis, Celery using docker.
     5. edit shifts: http://127.0.0.1:8000/api/shift/shifts/
     6. uploads: http://127.0.0.1:8000/api/shift/uploads/
     7. callout function : http://127.0.0.1:8000/api/shift/celery/
-### How callout function work with celery:
-    1. got http://127.0.0.1:8000/api/shift/celery/, choose 'add' or 'multiply' function and leave other field empty then post.
+## How callout function work with celery:
+    1. go to http://127.0.0.1:8000/api/shift/celery/, choose 'add' or 'multiply' function and leave other field empty then post.
     2. then refresh http://127.0.0.1:8000/api/shift/celery/, get the list of tasks with task field filled.
     3. to get the callout result with celery for a task. get the celerytask object 'id',
     4. and replace id in url http://127.0.0.1:8000/api/shift/celery/'id'/get-result, then you will get the task result
+## How to read file and update employee from file:
+    1. go to http://127.0.0.1:8000/api/shift/uploads/, then post
+    2. it will save it to database and write file to media/doc 
+    3. post-save create in perform_create function will read file and save to employee
 
-###  Required algorithms for :
+##  How algorithms work for :
 - Minimum of 10hr overnight rest
 - Maximum of 5 days working out of 7 any rolling 7 day window
 - Maximum of 5 days working in a row
@@ -40,7 +44,7 @@ Create PosgreSQL, Django, Redis, Celery using docker.
 ###  Solutions: 
   - see [pp/shift/utils.py](https://bitbucket.org/brucematrix/rosterapp/src/027a934a35de/app/shift/utils.py?at=master "Utils.py") for algorithms
 
-### Challenge
+## Challenge
 
 The amount of time you spend on this exercise is up to you, and there are several activities you could consider depending on your strengths:
 
