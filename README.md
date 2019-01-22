@@ -81,5 +81,5 @@ The amount of time you spend on this exercise is up to you, and there are severa
 - Maximum of 5 days working out of 7 any rolling 7 day window
 - Maximum of 5 days working in a row```
 
-but I did not apply it to use in updating employee, however it is the same way by importing the same method created in 
+but I did not apply it in updating employee, however it is the same way by importing the same method created in 
 ```utils.py```, and put method in perform_update method of the viewset.
