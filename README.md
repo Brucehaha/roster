@@ -44,7 +44,7 @@ Create PosgreSQL, Django, Redis, Celery using docker.
 - Maximum of 5 days working in a row
   
 ###  Solutions: 
-  - see [pp/shift/utils.py](https://bitbucket.org/brucematrix/rosterapp/src/027a934a35de/app/shift/utils.py?at=master "Utils.py") for algorithms
+  - see [pp/shift/utils.py](https://bitbucket.org/brucematrix/rosterapp/src/master/app/shift/utils.py "Utils.py") for algorithms
 
 ## Challenge
 
@@ -60,14 +60,14 @@ The amount of time you spend on this exercise is up to you, and there are severa
 
 
 ### Challenge Deliverables
-1. see [app/core/models.py](https://bitbucket.org/brucematrix/rosterapp/src/master/app/core/models.py?at=master "models.py") for model. 
+1. see [app/core/models.py](https://bitbucket.org/brucematrix/rosterapp/src/master/app/core/models.py "models.py") for model. 
    see [UML](https://drive.google.com/file/d/1mmIjisNYPS-pSBPlLaCF0pMm-WRjzYk7/view?usp=sharing "models.py") for UML diagram.
    There are differences between models.py and UML database design. In models.py, I did not create store table and shift_choices table. for convienience, store the shift choice and stores 
    directly in shift table.
-2. crreate a task table in [app/core/models.py](https://bitbucket.org/brucematrix/rosterapp/src/master/app/core/models.py?at=master "models.py").
-   create Upload serializer in [app/shift/employee_serializer.py](https://bitbucket.org/brucematrix/rosterapp/src/master/app/shift/employee_serializer.py?at=master).
+2. crreate a task table in [app/core/models.py](https://bitbucket.org/brucematrix/rosterapp/src/master/app/core/models.py "models.py").
+   create Upload serializer in [app/shift/employee_serializer.py](https://bitbucket.org/brucematrix/rosterapp/src/master/app/shift/employee_serializer.py).
    create UploadViewSet in [app/shift/UploadViewSet](https://bitbucket.org/brucematrix/rosterapp/src/master/app/shift/views.py?at=master) to read file and write to database.
-3. please see [app/shift/](https://bitbucket.org/brucematrix/rosterapp/src/master/app/shift/?at=master) folder to find the code
+3. please see [app/shift/](https://bitbucket.org/brucematrix/rosterapp/src/master/app/shift/) folder to find the code
 4. I do not need create least cost algrithom, I only need to design a pattern to call out and get least cost solution.
    But what is the call back data format is? Can I have a sample. So I can store them to the database.
 5.  see [app/core/](https://bitbucket.org/brucematrix/rosterapp/src/master/app/core/), ```celery_serializer.py,  models.py, tasks.py```.
